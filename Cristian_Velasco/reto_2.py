@@ -14,11 +14,15 @@
  “Con {promedio}, el mejor estudiante es {nombre}”
 """
 
+
 def determinar_mejor_promedio(estudiantes):
-    if estudiantes['prom1'] >= estudiantes['prom2'] >= \
-    estudiantes['prom3'] >= estudiantes['prom4']:
+
+    if estudiantes['prom1'] >= estudiantes['prom2']\
+            and estudiantes['prom1'] >= estudiantes['prom3']\
+            and estudiantes['prom1'] >= estudiantes['prom4']:
         return f"Con {estudiantes['prom1']}, el mejor estudiante es {estudiantes['est1']}"
-    elif estudiantes['prom2'] >= estudiantes['prom3'] >= estudiantes['prom4']:
+    elif estudiantes['prom2'] >= estudiantes['prom3']\
+            and estudiantes['prom2'] >= estudiantes['prom4']:
         return f"Con {estudiantes['prom2']}, el mejor estudiante es {estudiantes['est2']}"
     elif estudiantes['prom3'] >= estudiantes['prom4']:
         return f"Con {estudiantes['prom3']}, el mejor estudiante es {estudiantes['est3']}"
@@ -26,24 +30,25 @@ def determinar_mejor_promedio(estudiantes):
         return f"Con {estudiantes['prom4']}, el mejor estudiante es {estudiantes['est4']}"
 
 
-
- 
-
-        
 # entradas:
-
 estudiantes_1 = {'est1': 'Ana', 'prom1': 4.1, 'est2': 'Juan', 'prom2':
-4.2, 'est3': 'Pedro', 'prom3': 4.3, 'est4': 'Carla',
-'prom4': 4.4}
+                 4.2, 'est3': 'Pedro', 'prom3': 4.3, 'est4': 'Carla',
+                 'prom4': 4.4}
 
 estudiantes_2 = {'est1': 'Ana', 'prom1': 4.1, 'est2': 'Juan', 'prom2':
-4.5, 'est3': 'Pedro', 'prom3': 4.4, 'est4': 'Carla',
-'prom4': 4.3}
+                 4.5, 'est3': 'Pedro', 'prom3': 4.4, 'est4': 'Carla',
+                 'prom4': 4.3}
 
-estudiantes_3 = {'est1': 'Ana', 'prom1': 4, 'est2': 'Juan', 'prom2':
-4, 'est3': 'Pedro', 'prom3': 4, 'est4': 'Carla',
-'prom4': 4}
+estudiantes_3 = {'est1': 'ana', 'prom1': 4, 'est2': 'juan', 'prom2':
+                 4, 'est3': 'pedro', 'prom3': 4, 'est4': 'carla',
+                 'prom4': 4}
+
+estudiantes_4 = {'est1': 'ana', 'prom1': 4.2, 'est2': 'juan', 'prom2':
+                 4, 'est3': 'pedro', 'prom3': 4.2, 'est4': 'carla',
+                 'prom4': 4.2}
+
 
 print(determinar_mejor_promedio(estudiantes_1))
 print(determinar_mejor_promedio(estudiantes_2))
 print(determinar_mejor_promedio(estudiantes_3))
+print(determinar_mejor_promedio(estudiantes_4))
