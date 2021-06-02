@@ -29,8 +29,19 @@ def determinar_mejor_promedio(estudiantes):
     else:
         return f"Con {estudiantes['prom4']}, el mejor estudiante es {estudiantes['est4']}"
 
+# def determinar_mejor_promedio(estudiantes):
+
+#     if estudiantes['prom1'] >= estudiantes['prom2'] >= estudiantes['prom3'] >= estudiantes['prom4']:
+#         return f"Con {estudiantes['prom1']}, el mejor estudiante es {estudiantes['est1']}"
+#     elif estudiantes['prom2'] >= estudiantes['prom3'] >= estudiantes['prom4']:
+#         return f"Con {estudiantes['prom2']}, el mejor estudiante es {estudiantes['est2']}"
+#     elif estudiantes['prom3'] >= estudiantes['prom4']:
+#         return f"Con {estudiantes['prom3']}, el mejor estudiante es {estudiantes['est3']}"
+#     else:
+#         return f"Con {estudiantes['prom4']}, el mejor estudiante es {estudiantes['est4']}"
 
 # entradas:
+
 estudiantes_1 = {'est1': 'Ana', 'prom1': 4.1, 'est2': 'Juan', 'prom2':
                  4.2, 'est3': 'Pedro', 'prom3': 4.3, 'est4': 'Carla',
                  'prom4': 4.4}
