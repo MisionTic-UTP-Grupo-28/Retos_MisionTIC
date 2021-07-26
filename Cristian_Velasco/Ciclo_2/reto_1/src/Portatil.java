@@ -1,5 +1,10 @@
 public class Portatil extends Dispositivo {
     // Constantes y atributos
+
+    private static final int DISCO_DURO_BASE = 250;
+
+    private int discoDuro;
+
     // Constructor
     public Portatil() {
         // codigo

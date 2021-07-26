@@ -1,6 +1,10 @@
 public class Tablet extends Dispositivo {
     // Attributes and Constants
 
+    private static final int MEMORIA_RAM_BASE = 1;
+
+    private int memoriaRam;
+
     // Constructor
 
     public Tablet() {
