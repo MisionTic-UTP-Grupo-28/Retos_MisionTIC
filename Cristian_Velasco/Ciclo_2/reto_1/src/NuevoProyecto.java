@@ -1,22 +1,21 @@
 public class NuevoProyecto {
 
     // Attributes
-    private double monto = 0;
-    private double interes = 0;
-    private int periodo = 0;
+    private double monto;
+    private double interes;
+    private int periodo;
 
     // Methods
+    public NuevoProyecto() {
+        this.periodo = 0;
+        this.monto = 0;
+        this.interes = 0;
+    }
 
-    public String compararInversion(int pPeriodo, double pMonto, double pInteres) {
-        monto = pMonto;
-        periodo = pPeriodo;
-        interes = pInteres;
-
-        double interesSimple = calcularInteresSimple();
-        double interesCompuesto = calcularInteresCompuesto();
-        double comparacion = interesCompuesto - interesSimple;
-
-        return interesSimple + "\n" + interesCompuesto + "\n" + comparacion;
+    public NuevoProyecto(int pPeriodo, double pMonto, double pInteres) {
+        this.periodo = pPeriodo;
+        this.monto = pMonto;
+        this.interes = pInteres;
     }
 
     public double calcularInteresSimple() {
@@ -29,4 +28,25 @@ public class NuevoProyecto {
         return Math.round(interesCompuesto);
     }
 
+    public double compararInversion(int pPeriodo, double pMonto, double pInteres) {
+        periodo = pPeriodo;
+        monto = pMonto;
+        interes = pInteres;
+
+        double diferencia = 0;
+
+        double interesSimple = calcularInteresSimple();
+        double interesCompuesto = calcularInteresCompuesto();
+        diferencia = interesCompuesto - interesSimple;
+
+        return diferencia;
+    }
+
+    public double compararInversion() {
+        double diferencia = 0;
+
+        diferencia = calcularInteresCompuesto() - calcularInteresSimple();
+
+        return diferencia;
+    }
 }
