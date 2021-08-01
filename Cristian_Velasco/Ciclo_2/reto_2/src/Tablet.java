@@ -1,9 +1,9 @@
 public class Tablet extends Dispositivo {
     // Attributes and Constants
 
-    private static final int MEMORIA_RAM_BASE = 1;
+    private static final Integer MEMORIA_RAM_BASE = 1;
 
-    private int memoriaRam;
+    private Integer memoriaRam;
 
     // Constructor
 
@@ -21,5 +21,11 @@ public class Tablet extends Dispositivo {
     // Métodos
     public Double calcularPrecio() {
         // codigo
+        Double precioFinal = 0.0;
+        Integer valorConsumoW = 0;
+
+        precioFinal = super.calcularPrecio() + valorConsumoW;
+
+        return precioFinal;
     }
 }

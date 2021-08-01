@@ -1,9 +1,9 @@
 public class Portatil extends Dispositivo {
     // Constantes y atributos
 
-    private static final int DISCO_DURO_BASE = 250;
+    private static final Integer DISCO_DURO_BASE = 250;
 
-    private int discoDuro;
+    private Integer discoDuro;
 
     // Constructor
     public Portatil() {
@@ -21,5 +21,11 @@ public class Portatil extends Dispositivo {
     // Métodos
     public Double calcularPrecio() {
         // codigo
+        Double precioFinal = 0.0;
+        Integer valorConsumoW = 0;
+
+        precioFinal = super.calcularPrecio() + valorConsumoW;
+
+        return precioFinal;
     }
 }
