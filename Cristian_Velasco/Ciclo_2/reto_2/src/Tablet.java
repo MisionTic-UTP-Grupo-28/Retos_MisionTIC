@@ -8,24 +8,38 @@ public class Tablet extends Dispositivo {
     // Constructor
 
     public Tablet() {
-        super();
+        this(PRECIO_BASE, PESO_BASE, CONSUMO_W, MEMORIA_RAM_BASE);
     }
 
     public Tablet(Double precioBase, Integer peso) {
+        this(precioBase, peso, CONSUMO_W, MEMORIA_RAM_BASE);
     }
 
     public Tablet(Double precioBase, Integer peso, char consumoW, Integer memoriaRam) {
         // codigo
+        super(precioBase, peso, consumoW);
+        this.memoriaRam = memoriaRam;
     }
 
     // Métodos
     public Double calcularPrecio() {
         // codigo
-        Double precioFinal = 0.0;
-        Integer valorConsumoW = 0;
+        Double adicion = super.calcularPrecio();
 
-        precioFinal = super.calcularPrecio() + valorConsumoW;
+        if (memoriaRam > 1 && memoriaRam <= 2) {
+            adicion += 18;
+        }
+        if (memoriaRam > 2 && memoriaRam <= 4) {
+            adicion += 37;
+        }
+        if (memoriaRam > 4) {
+            adicion += 69;
+        }
 
-        return precioFinal;
+        return adicion;
+    }
+
+    public Integer getMemoriaRam() {
+        return memoriaRam;
     }
 }

@@ -8,24 +8,35 @@ public class Portatil extends Dispositivo {
     // Constructor
     public Portatil() {
         // codigo
+        this(PRECIO_BASE, PESO_BASE, CONSUMO_W, DISCO_DURO_BASE);
     }
 
     public Portatil(Double precioBase, Integer peso) {
+        this(precioBase, peso, CONSUMO_W, DISCO_DURO_BASE);
         // codigo
     }
 
     public Portatil(Double precioBase, Integer peso, char consumoW, Integer discoDuro) {
         // codigo
+        super(precioBase, peso, consumoW);
+        this.discoDuro = discoDuro;
     }
 
     // Métodos
     public Double calcularPrecio() {
         // codigo
-        Double precioFinal = 0.0;
-        Integer valorConsumoW = 0;
+        Double adicion = super.calcularPrecio();
 
-        precioFinal = super.calcularPrecio() + valorConsumoW;
+        if (discoDuro > 250 && discoDuro <= 500) {
+            adicion += 25;
+        }
+        if (discoDuro > 500 && discoDuro <= 1000) {
+            adicion += 65;
+        }
+        if (discoDuro > 1000) {
+            adicion += 89;
+        }
 
-        return precioFinal;
+        return adicion;
     }
 }

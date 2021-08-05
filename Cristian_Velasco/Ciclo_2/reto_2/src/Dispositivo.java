@@ -1,23 +1,26 @@
 public class Dispositivo {
     // Attributes
-    private static final Integer PESO_BASE = 2;
-    private static final char CONSUMO_W_BASE = 'F';
-    private static final Double PRECIO_BASE = 200.0;
+    protected static final char CONSUMO_W = 'F';
+    protected static final Double PRECIO_BASE = 200.0;
+    protected static final Integer PESO_BASE = 2;
 
-    private Integer peso;
-    private char consumoW;
-    private Double precioBase;
+    protected Integer peso;
+    protected char consumoW;
+    protected Double precioBase;
 
     public Dispositivo() {
-        super();
+        this(PRECIO_BASE, PESO_BASE, CONSUMO_W);
     }
 
     public Dispositivo(Double precioBase, Integer peso) {
         // codigo
+        this(precioBase, peso, CONSUMO_W);
     }
 
     public Dispositivo(Double precioBase, Integer peso, char consumoW) {
         // codigo
+        this.precioBase = precioBase;
+        this.peso = peso;
         comprobarConsumoW(consumoW);
     }
 
@@ -25,57 +28,64 @@ public class Dispositivo {
 
     public void comprobarConsumoW(char consumoW) {
 
-        if (consumoW == 'F') {
+        if (consumoW > 2 && consumoW <= 20) {
             this.consumoW = consumoW;
         } else {
-            this.consumoW = CONSUMO_W_BASE;
+            this.consumoW = CONSUMO_W;
         }
 
     }
 
     public Double calcularPrecio() {
 
-        Double precioFinal = 0.0;
-        Integer valorPorConsumoW = 0;
-        Integer valorPorPeso = 0;
+        Double adicion = 0.0;
 
         switch (consumoW) {
             case 'A':
-                valorPorConsumoW = 80;
+                adicion += 80.0;
                 break;
             case 'B':
-                valorPorConsumoW = 70;
+                adicion += 70.0;
                 break;
             case 'C':
-                valorPorConsumoW = 60;
+                adicion += 60.0;
                 break;
             case 'D':
-                valorPorConsumoW = 50;
+                adicion += 50.0;
                 break;
             case 'E':
-                valorPorConsumoW = 40;
+                adicion += 40.0;
                 break;
             case 'F':
-                valorPorConsumoW = 30;
+                adicion += 30.0;
                 break;
             default:
                 break;
         }
 
         if (peso > 1 && peso <= 2) {
-            valorPorPeso += 20;
+            adicion += 20.0;
         } else if (peso > 2 && peso <= 3) {
-            valorPorPeso += 35;
+            adicion += 35.0;
         } else if (peso > 3 && peso <= 4) {
-            valorPorPeso += 45;
+            adicion += 45.0;
         } else if (peso > 4) {
-            valorPorPeso += 73;
+            adicion += 73.0;
         }
 
-        precioFinal = precioBase + valorPorConsumoW + valorPorPeso;
+        return precioBase + adicion;
+    }
 
-        return precioFinal;
+    public static Double getPrecioBase() {
+        return PRECIO_BASE;
+    }
 
+    public static char getConsumoW() {
+        return CONSUMO_W;
+    }
+
+    public Integer getPeso() {
+        return peso;
     }
 
 }

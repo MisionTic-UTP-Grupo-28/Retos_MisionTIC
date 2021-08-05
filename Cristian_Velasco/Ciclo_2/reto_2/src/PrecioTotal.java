@@ -1,36 +1,31 @@
 public class PrecioTotal {
     // Attributes
 
-    private Double totalDispositivos;
-    private double totalPortatiles;
-    private Double totalTablets;
+    private Double totalDispositivos = 0.0;
+    private double totalPortatiles = 0.0;
+    private Double totalTablets = 0.0;
     private Dispositivo listaDispositivos[];
 
     // Construtors
-    public PrecioTotal() {
-        this.totalDispositivos = 0.0;
-        this.totalPortatiles = 0.0;
-        this.totalTablets = 0.0;
-    }
 
     public PrecioTotal(Dispositivo pDispositivos[]) {
-        this.totalDispositivos = 0.0;
-        this.totalPortatiles = 0.0;
-        this.totalTablets = 0.0;
-
         this.listaDispositivos = pDispositivos;
-
     }
 
     // Methods
     public void mostrarTotales() {
 
         for (Dispositivo el : listaDispositivos) {
+            // System.out.println("elemento: " + el.calcularPrecio());
             if (el instanceof Dispositivo) {
                 totalDispositivos += el.calcularPrecio();
-            } else if (el instanceof Tablet) {
+            }
+
+            if (el instanceof Tablet) {
                 totalTablets += el.calcularPrecio();
-            } else if (el instanceof Portatil) {
+            }
+
+            if (el instanceof Portatil) {
                 totalPortatiles += el.calcularPrecio();
             }
         }
